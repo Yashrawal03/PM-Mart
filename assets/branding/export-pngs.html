@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>PM Mart - Brand Asset Exporter</title></head>
+<body style="font-family: sans-serif; background: #f0f0f0; padding: 20px;">
+    <h2>PM Mart - Download PNGs</h2>
+    <p>Click below to download transparent PNG versions of your SVGs.</p>
+    <div id="container"></div>
+    <script>
+        const svgs = ["logo-main-transparent.svg","logo-main-light.svg","logo-main-dark.svg","logo-horizontal-transparent.svg","logo-horizontal-light.svg","logo-horizontal-dark.svg","logo-square.svg","logo-social-profile.svg","favicon-64x64.svg","favicon-32x32.svg","favicon-16x16.svg"];
+        const container = document.getElementById('container');
+        
+        svgs.forEach(file => {
+            const btn = document.createElement('button');
+            btn.textContent = 'Download ' + file.replace('.svg', '.png');
+            btn.style.margin = '5px';
+            btn.style.padding = '10px';
+            btn.onclick = () => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    const a = document.createElement('a');
+                    a.download = file.replace('.svg', '.png');
+                    a.href = canvas.toDataURL('image/png');
+                    a.click();
+                };
+                img.src = file;
+            };
+            container.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
