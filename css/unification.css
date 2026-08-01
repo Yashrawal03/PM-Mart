@@ -257,8 +257,12 @@ img:-moz-loading, img:-webkit-loading {
   }
 
   /* Improve font scaling to strict explicit pixel boundaries */
-  h1, h2, .display-4, .hero-title-main {
+  h1, h2, .display-4 {
     font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+  .hero-title-main {
+    font-size: clamp(18px, 6vw, 32px) !important;
     line-height: 1.2 !important;
   }
   h3, h4, .section-title, .lead {
