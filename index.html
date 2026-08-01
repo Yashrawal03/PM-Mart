@@ -48,6 +48,7 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/unification.css">
 
   <!-- Schema.org Markup -->
   <script type="application/ld+json">
@@ -107,25 +108,23 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">HOME</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-1" href="shop.html">SHOP <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html?filter=kurtis">KURTIS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html?filter=bouquets">BOUQUETS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html?filter=crafts">CRAFTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html?filter=decor">HOME DECOR</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
-              SPICES <span class="badge-coming-soon-nav">COMING SOON</span>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SHOP <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i>
             </a>
+            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+              <li><a class="dropdown-item" href="shop.html?filter=kurtis">Premium Kurtis</a></li>
+              <li><a class="dropdown-item" href="shop.html?filter=bouquets">Handmade Bouquets</a></li>
+              <li><a class="dropdown-item" href="shop.html?filter=crafts">Handmade Crafts</a></li>
+              <li><a class="dropdown-item" href="shop.html?filter=decor">Home Decor</a></li>
+              <li><a class="dropdown-item text-muted" href="javascript:void(0)" onclick="alert('Spices are coming soon!')">Spices (Coming Soon)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">OUR STORY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">CONTACT</a>
           </li>
         </ul>
       </div>
@@ -175,14 +174,14 @@
         <div class="col-lg-7 h-100 position-relative">
           <div class="hero-right-grid">
             <div class="hero-main-img-wrap">
-              <img src="assets/img/k1.jpeg" alt="Fashion" loading="lazy">
+              <img src="assets/img/k1.jpeg" alt="Fashion">
             </div>
             <div class="hero-side-cards">
               <div class="hero-side-card">
-                <img src="assets/img/c1.jpeg" alt="Bouquets" loading="lazy">
+                <img src="assets/img/c1.jpeg" alt="Bouquets">
               </div>
               <div class="hero-side-card">
-                <img src="assets/img/c2.jpeg" alt="Home Decor" loading="lazy">
+                <img src="assets/img/c2.jpeg" alt="Home Decor">
               </div>
               <div class="hero-side-card card-spices">
                 <div class="spices-icon mb-2">
@@ -190,7 +189,9 @@
                 </div>
                 <h3 class="spices-title" style="font-family: var(--font-heading); font-size: 2.2rem; margin:0;">Spices</h3>
                 <div style="font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600; opacity: 0.9; margin-bottom: 1rem;">COMING SOON</div>
-                <a href="#" class="btn-outline-premium" style="border-color: #fff; color: #fff; padding: 10px 24px; font-size: 0.8rem; font-weight:600;">NOTIFY ME</a>
+                <div class="mt-4">
+                  <a href="javascript:void(0)" onclick="alert('You will be notified soon!')" class="btn-outline-premium" style="border-color: #fff; color: #fff; padding: 10px 24px; font-size: 0.8rem; font-weight:600;">NOTIFY ME</a>
+                </div>
               </div>
             </div>
           </div>
@@ -214,27 +215,27 @@
       <div class="category-grid-5">
         <!-- Card 1 -->
         <a href="shop.html?filter=kurtis" class="cat-card">
-          <div class="cat-img"><img src="assets/img/k2.jpeg" alt="Premium Kurtis" loading="lazy"></div>
+          <div class="cat-img"><img src="assets/img/k2.jpeg" alt="Premium Kurtis"></div>
           <div class="cat-body">Premium Kurtis</div>
         </a>
         <!-- Card 2 -->
         <a href="shop.html?filter=bouquets" class="cat-card">
-          <div class="cat-img"><img src="assets/img/c1.jpeg" alt="Handmade Bouquets" loading="lazy"></div>
+          <div class="cat-img"><img src="assets/img/c1.jpeg" alt="Handmade Bouquets"></div>
           <div class="cat-body">Handmade Bouquets</div>
         </a>
         <!-- Card 3 -->
         <a href="shop.html?filter=crafts" class="cat-card">
-          <div class="cat-img"><img src="assets/img/c3.jpeg" alt="Handmade Crafts" loading="lazy"></div>
+          <div class="cat-img"><img src="assets/img/c3.jpeg" alt="Handmade Crafts"></div>
           <div class="cat-body">Handmade Crafts</div>
         </a>
         <!-- Card 4 -->
         <a href="shop.html?filter=decor" class="cat-card">
-          <div class="cat-img"><img src="assets/img/c2.jpeg" alt="Home Decor" loading="lazy"></div>
+          <div class="cat-img"><img src="assets/img/c2.jpeg" alt="Home Decor"></div>
           <div class="cat-body">Home Decor</div>
         </a>
         <!-- Card 5 -->
         <div class="cat-card cat-spices">
-          <div class="cat-img"><img src="assets/img/c4.jpeg" alt="Spices" loading="lazy"></div>
+          <div class="cat-img"><img src="assets/img/c4.jpeg" alt="Spices"></div>
           <div class="cat-body">
             <span>Spices</span>
             <span class="cat-badge-soon">COMING SOON</span>
@@ -335,7 +336,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
           <div class="spices-img-wrapper">
-            <img src="assets/img/spices_illustration.png" alt="Authentic Indian Spices" loading="lazy">
+            <img src="assets/img/spices_illustration.png" alt="Authentic Indian Spices">
           </div>
         </div>
         <div class="col-lg-6 order-lg-1 text-center text-lg-start pe-lg-5">
@@ -391,7 +392,7 @@
               <div class="ms-auto"><i class="bi bi-three-dots"></i></div>
             </div>
             <div class="insta-img-wrapper">
-              <img src="assets/img/k1.jpeg" class="insta-img" alt="Instagram Post 1" loading="lazy">
+              <img src="assets/img/k1.jpeg" class="insta-img" alt="Instagram Post 1">
             </div>
             <div class="insta-actions">
               <i class="bi bi-heart hover-text-olive cursor-pointer"></i>
@@ -417,7 +418,7 @@
               <div class="ms-auto"><i class="bi bi-three-dots"></i></div>
             </div>
             <div class="insta-img-wrapper">
-              <img src="assets/img/c1.jpeg" class="insta-img" alt="Instagram Post 2" loading="lazy">
+              <img src="assets/img/c1.jpeg" class="insta-img" alt="Instagram Post 2">
             </div>
             <div class="insta-actions">
               <i class="bi bi-heart hover-text-olive cursor-pointer"></i>
@@ -443,7 +444,7 @@
               <div class="ms-auto"><i class="bi bi-three-dots"></i></div>
             </div>
             <div class="insta-img-wrapper">
-              <img src="assets/img/k2.jpeg" class="insta-img" alt="Instagram Post 3" loading="lazy">
+              <img src="assets/img/k2.jpeg" class="insta-img" alt="Instagram Post 3">
             </div>
             <div class="insta-actions">
               <i class="bi bi-heart hover-text-olive cursor-pointer"></i>
@@ -469,7 +470,7 @@
               <div class="ms-auto"><i class="bi bi-three-dots"></i></div>
             </div>
             <div class="insta-img-wrapper">
-              <img src="assets/img/c2.jpeg" class="insta-img" alt="Instagram Post 4" loading="lazy">
+              <img src="assets/img/c2.jpeg" class="insta-img" alt="Instagram Post 4">
             </div>
             <div class="insta-actions">
               <i class="bi bi-heart hover-text-olive cursor-pointer"></i>
@@ -524,7 +525,7 @@
         <div class="col-lg-3 col-md-6">
           <h4 class="h5 mb-4">Quick Actions</h4>
           <a href="#" class="btn btn-outline-premium w-100 mb-3 dynamic-maps-nav" target="_blank">Get Directions</a>
-          <a href="#" class="btn btn-whatsapp w-100 text-white border-0 dynamic-whatsapp-nav" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
+          <a href="#" class="btn btn-whatsapp w-100 border-0 dynamic-whatsapp-nav" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
         </div>
       </div>
     </div>

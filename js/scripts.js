@@ -33,16 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. Search Icon Toggle Logic (UI Only for now)
-  const searchBtn = document.getElementById('searchBtn');
-  
-  if (searchBtn) {
-    searchBtn.addEventListener('click', (e) => {
+  // 2. Search & Wishlist Icon Toggle Logic (UI Only for now)
+  document.querySelectorAll('[aria-label="Search"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
-      // In a full app, this would toggle a search modal or expanding input
       alert('Search functionality will be implemented soon.');
     });
-  }
+  });
+
+  document.querySelectorAll('[aria-label="Wishlist"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Wishlist functionality will be implemented soon.');
+    });
+  });
 
   // 3. Dynamic Current Year for Footer
   const yearElement = document.getElementById('currentYear');
@@ -63,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Scroll Fade-in Animations
+  // 5. Scroll Fade-in Animations (Disabled for Debugging)
+  /*
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -81,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fadeElements = document.querySelectorAll('.fade-in-up');
   fadeElements.forEach(el => observer.observe(el));
+  */
 
   // 6. Newsletter Form Submission (Prevent Default)
   const newsletterForm = document.querySelector('.newsletter-form');
@@ -135,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="product.html?id=${product.id}" class="text-decoration-none" aria-label="View ${product.name}">
             <div class="product-img-wrapper">
               ${badgeHTML}
-              <!-- Image with lazy loading and fade effect -->
-              <img src="${product.image}" alt="${product.name}" class="product-img" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+              <!-- Image loading immediately without native lazy-load to prevent race conditions -->
+              <img src="${product.image}" alt="${product.name}" class="product-img" onerror="this.onerror=null; this.src='assets/img/logo_transparent.png'; this.style.objectFit='contain'; this.style.padding='2rem'; this.style.backgroundColor='var(--secondary-beige)';">
             </div>
           </a>
           <div class="product-details">
@@ -171,14 +177,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sliderKurtis) {
       const kurtis = PRODUCTS.filter(p => p.category === 'kurtis').slice(0, 8); // Max 8 for slider
       sliderKurtis.innerHTML = kurtis.map(p => createProductCard(p)).join('');
-      sliderKurtis.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+      // sliderKurtis.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
     }
 
     const sliderCrafts = document.getElementById('sliderCrafts');
     if (sliderCrafts) {
       const crafts = PRODUCTS.filter(p => p.category === 'crafts').slice(0, 8);
       sliderCrafts.innerHTML = crafts.map(p => createProductCard(p)).join('');
-      sliderCrafts.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+      // sliderCrafts.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
     }
 
     // ---------------------------------------------------------
@@ -234,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
           noResults.classList.add('d-none');
           
           // Re-attach observer for smooth fade-in during live search
-          document.querySelectorAll('#productGrid .fade-in-up').forEach(el => observer.observe(el));
+          // document.querySelectorAll('#productGrid .fade-in-up').forEach(el => observer.observe(el));
         }
       };
 
@@ -558,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
         if (related.length > 0) {
           relatedSlider.innerHTML = related.map(p => createProductCard(p)).join('');
-          relatedSlider.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+          // relatedSlider.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
         } else {
           relatedSection.classList.add('d-none');
         }
@@ -566,3 +572,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// Catch all empty links to prevent page jump
+document.querySelectorAll('a[href="#"]').forEach(link => {
+  if (!link.hasAttribute('onclick') && !link.id && !link.classList.contains('dynamic-whatsapp-nav') && !link.hasAttribute('aria-label')) {
+    link.addEventListener('click', (e) => {
+      if (link.getAttribute('href') === '#') {
+        e.preventDefault();
+      }
+    });
+  }
+});
+

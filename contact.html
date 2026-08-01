@@ -56,6 +56,7 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/unification.css">
   <!-- Analytics -->
   <script src="js/analytics.js"></script>
 </head>
@@ -69,27 +70,65 @@
     </div>
   </div>
 
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-center align-items-center gap-2">
+      <i class="bi bi-box-seam"></i> Free Delivery on Orders Above ₹999 | COD Available
+    </div>
+  </div>
+
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand dynamic-store-name" href="index.html"></a>
+  <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Left Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo_transparent.png" alt="PM Mart" class="site-logo">
+      </a>
       
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="bi bi-list fs-2 text-brown"></i>
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list fs-2 text-dark"></i>
       </button>
       
+      <!-- Center Nav Links -->
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">HOME</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SHOP <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+              <li><a class="dropdown-item" href="shop.html?filter=kurtis">Premium Kurtis</a></li>
+              <li><a class="dropdown-item" href="shop.html?filter=bouquets">Handmade Bouquets</a></li>
+              <li><a class="dropdown-item" href="shop.html?filter=crafts">Handmade Crafts</a></li>
+              <li><a class="dropdown-item" href="shop.html?filter=decor">Home Decor</a></li>
+              <li><a class="dropdown-item text-muted" href="javascript:void(0)" onclick="alert('Spices are coming soon!')">Spices (Coming Soon)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">OUR STORY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">CONTACT</a>
+          </li>
         </ul>
       </div>
       
-      <div class="nav-icons d-none d-lg-flex align-items-center">
-        <a href="shop.html" class="btn btn-link" aria-label="Search"><i class="bi bi-search"></i></a>
-        <a href="#" class="btn btn-link dynamic-whatsapp-nav" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <!-- Right Icons -->
+      <div class="nav-icons d-none d-lg-flex align-items-center gap-3 ms-4">
+        <a href="#" class="btn btn-link p-0 text-dark icon-hover" aria-label="Search">
+          <i class="bi bi-search fs-5"></i>
+        </a>
+        <a href="#" class="btn btn-link p-0 text-dark icon-hover" aria-label="Wishlist">
+          <i class="bi bi-heart fs-5"></i>
+        </a>
+        <a href="cart.html" class="btn btn-link p-0 text-dark position-relative icon-hover" aria-label="Cart">
+          <i class="bi bi-bag fs-5"></i>
+          <span class="cart-badge">0</span>
+        </a>
       </div>
     </div>
   </nav>
@@ -153,8 +192,19 @@
                   <p class="text-light mb-2 dynamic-phone-nav dynamic-phone-text"></p>
                   <div class="d-flex gap-2">
                     <a href="#" class="btn btn-sm btn-outline-premium dynamic-phone-nav">Call Now</a>
-                    <a href="#" class="btn btn-sm btn-whatsapp dynamic-whatsapp-nav border-0 text-white" target="_blank">WhatsApp</a>
+                    <a href="#" class="btn btn-sm btn-whatsapp dynamic-whatsapp-nav border-0" target="_blank">WhatsApp</a>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="contact-info-card d-flex align-items-start">
+                <i class="bi bi-instagram contact-icon me-4" style="color: #E1306C;"></i>
+                <div>
+                  <h3 class="h5 text-brown">Instagram</h3>
+                  <p class="text-light mb-2">Follow us for updates and exclusive handmade collections.</p>
+                  <a href="#" class="btn btn-sm btn-outline-premium dynamic-insta-nav" target="_blank">View Profile</a>
                 </div>
               </div>
             </div>
@@ -196,12 +246,58 @@
           </div>
           
           <!-- Dynamic Google Map -->
-          <div class="rounded overflow-hidden shadow-sm border">
-            <iframe src="" class="dynamic-maps-nav w-100" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="rounded overflow-hidden shadow-sm border fade-in-up">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754720782!3d28.52758200617607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1704255078564!5m2!1sen!2sin" class="dynamic-maps-nav w-100" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
       </div>
+      
+      <!-- FAQ Section -->
+      <div class="row mt-5 pt-5 border-top fade-in-up">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-brown text-center mb-5">Frequently Asked Questions</h2>
+          <div class="accordion accordion-flush" id="faqAccordion">
+            <div class="accordion-item bg-transparent border-bottom">
+              <h2 class="accordion-header" id="faq-headingOne">
+                <button class="accordion-button collapsed bg-transparent text-brown fw-semibold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseOne" aria-expanded="false" aria-controls="faq-collapseOne">
+                  Do you ship internationally?
+                </button>
+              </h2>
+              <div id="faq-collapseOne" class="accordion-collapse collapse" aria-labelledby="faq-headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 text-light">
+                  Currently, we ship across India. We are working on establishing international shipping partners and will announce it soon on our Instagram!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item bg-transparent border-bottom">
+              <h2 class="accordion-header" id="faq-headingTwo">
+                <button class="accordion-button collapsed bg-transparent text-brown fw-semibold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseTwo" aria-expanded="false" aria-controls="faq-collapseTwo">
+                  Are your Kurtis really handmade?
+                </button>
+              </h2>
+              <div id="faq-collapseTwo" class="accordion-collapse collapse" aria-labelledby="faq-headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 text-light">
+                  Yes! All our fashion products and crafts are meticulously handmade by skilled local artisans, ensuring authentic quality and unique detailing.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item bg-transparent border-bottom">
+              <h2 class="accordion-header" id="faq-headingThree">
+                <button class="accordion-button collapsed bg-transparent text-brown fw-semibold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseThree" aria-expanded="false" aria-controls="faq-collapseThree">
+                  Can I request custom bouquets?
+                </button>
+              </h2>
+              <div id="faq-collapseThree" class="accordion-collapse collapse" aria-labelledby="faq-headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body px-0 text-light">
+                  Absolutely. We love bringing your vision to life. Please contact us via WhatsApp to discuss customizations and pre-orders.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </section>
 
@@ -211,7 +307,7 @@
       <div class="row g-4">
         <!-- Col 1 -->
         <div class="col-lg-4 col-md-6">
-          <h3 class="footer-brand dynamic-store-name"></h3>
+          <img src="assets/img/logo_transparent.png" alt="PM Mart" class="footer-logo">
           <p class="mb-4 dynamic-tagline"></p>
           <div class="social-icons">
             <a href="#" class="dynamic-insta-nav" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -243,7 +339,7 @@
         <div class="col-lg-3 col-md-6">
           <h4 class="h5 mb-4">Quick Actions</h4>
           <a href="#" class="btn btn-outline-premium w-100 mb-3 dynamic-maps-nav" target="_blank">Get Directions</a>
-          <a href="#" class="btn btn-whatsapp w-100 text-white border-0 dynamic-whatsapp-nav" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
+          <a href="#" class="btn btn-whatsapp w-100 border-0 dynamic-whatsapp-nav" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
         </div>
       </div>
     </div>

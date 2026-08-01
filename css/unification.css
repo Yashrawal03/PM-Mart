@@ -1,0 +1,384 @@
+/* ==========================================================================
+   PM MART - UNIFIED DESIGN SYSTEM
+   Overrides inconsistencies to ensure one premium ecommerce experience.
+   ========================================================================== */
+
+/* 1. TYPOGRAPHY UNIFICATION */
+h1, h2, h3, h4, h5, h6, 
+.display-4, .hero-title, .hero-title-main, 
+.section-title, .product-title, .category-heading, .footer-brand {
+  font-family: var(--font-heading, 'Playfair Display', serif) !important;
+  font-weight: 600;
+  color: var(--accent-brown);
+}
+
+body, p, a, span, button, input, textarea, .nav-link, .btn, .footer-links a {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+}
+
+/* 2. COLOR UNIFICATION */
+.bg-secondary-subtle, .about-hero {
+  background-color: var(--secondary-beige) !important;
+}
+.text-brown {
+  color: var(--accent-brown) !important;
+}
+.text-gold {
+  color: var(--accent-olive) !important;
+}
+
+/* 3. BUTTON UNIFICATION */
+.btn-premium, .btn-outline-premium, .btn-whatsapp, .filter-btn {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 12px 28px !important;
+  border-radius: 4px !important; /* Premium subtle curve */
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  box-shadow: none;
+}
+
+.btn-premium {
+  background-color: var(--accent-brown) !important;
+  color: var(--primary-white) !important;
+  border: 1px solid var(--accent-brown) !important;
+}
+.btn-premium:hover {
+  background-color: var(--accent-olive) !important;
+  border-color: var(--accent-olive) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(186, 131, 114, 0.3) !important;
+}
+
+.btn-outline-premium, .filter-btn {
+  background-color: transparent !important;
+  color: var(--accent-brown) !important;
+  border: 1px solid var(--accent-brown) !important;
+}
+.btn-outline-premium:hover, .filter-btn.active, .filter-btn:hover {
+  background-color: var(--accent-brown) !important;
+  color: var(--primary-white) !important;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background-color: #25D366 !important;
+  color: #fff !important;
+  border: 1px solid #25D366 !important;
+}
+.btn-whatsapp:hover {
+  background-color: #128C7E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+}
+
+/* 4. CARD UNIFICATION (Product & Category) */
+.product-card, .category-card {
+  background-color: var(--primary-white) !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0,0,0,0.04) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+  overflow: hidden;
+}
+.product-card:hover, .category-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08) !important;
+}
+
+/* Enforce 4:5 Aspect Ratio globally for products */
+.product-img-wrapper, .cat-img {
+  position: relative !important;
+  width: 100% !important;
+  padding-top: 125% !important; /* 4:5 ratio */
+  background-color: var(--secondary-beige) !important;
+  overflow: hidden !important;
+}
+.product-img, .cat-img img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.5s ease !important;
+}
+.product-card:hover .product-img, .category-card:hover .cat-img img {
+  transform: scale(1.06) !important;
+}
+
+/* 5. SPACING & ALIGNMENT */
+.section-padding {
+  padding: 5rem 0 !important; /* Standardize vertical spacing */
+}
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3.5rem 0 !important;
+  }
+}
+
+/* Remove awkward white spaces */
+.about-hero, .hero-section, .hero-custom {
+  margin-bottom: 0 !important;
+}
+
+/* Fix Hero Text Alignment */
+.hero-text-col, .hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 6. IMAGE PLACEHOLDERS & FALLBACKS */
+img {
+  background-color: var(--secondary-beige); /* Placeholder color while loading */
+}
+img:-moz-loading, img:-webkit-loading {
+  visibility: hidden;
+}
+
+/* 7. FORMS AND INPUTS (Contact & Shop Search) */
+.form-control, .search-input {
+  border-radius: 4px !important;
+  padding: 12px 16px !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  font-family: var(--font-body) !important;
+}
+.form-control:focus, .search-input:focus {
+  border-color: var(--accent-olive) !important;
+  box-shadow: 0 0 0 3px rgba(186, 131, 114, 0.2) !important;
+}
+
+/* Fix missing margins on about images */
+.category-img-placeholder {
+  border-radius: 8px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* 8. SHOP PAGE HEADER (Matches Home aesthetics) */
+.shop-header {
+  background-color: var(--secondary-beige) !important;
+  padding: 4rem 0 !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & READABILITY OVERRIDES
+   ========================================================================== */
+
+/* 1. Global Light Background Contrast overrides */
+.text-light {
+  color: #4A4A4A !important;
+}
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 2. Context-Aware Headings & Text */
+/* Dark Backgrounds */
+.footer-dark, .footer, .bg-dark {
+  color: #FFFFFF !important;
+}
+.footer-dark h1, .footer-dark h2, .footer-dark h3, .footer-dark h4, .footer-dark h5, .footer-dark h6,
+.footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
+  color: #FFFFFF !important;
+}
+.footer-dark p, .footer p {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.footer-dark .text-brown, .footer .text-brown {
+  color: #FFFFFF !important;
+}
+.footer-dark .text-light, .footer .text-light {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* About Hero Specific Readability Fix */
+.about-hero h1, .about-hero h2, .about-hero h3, .about-hero h4, .about-hero h5, .about-hero h6, .about-hero .display-4 {
+  color: #2B2B2B !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+.about-hero p, .about-hero .text-white-50 {
+  color: #5A5A5A !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
+/* 3. Button Contrast */
+.btn-whatsapp {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+.btn-whatsapp:hover {
+  background-color: #0F7569 !important;
+  color: #FFFFFF !important;
+}
+.btn-premium:hover {
+  color: #2B2B2B !important;
+}
+.btn:disabled {
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  border-color: #bbbbbb !important;
+}
+
+/* 4. Cards & Badges Contrast */
+.product-title {
+  color: #2B2B2B !important;
+}
+.product-price {
+  color: #1a1a1a !important;
+}
+.product-category, .product-desc {
+  color: #4A4A4A !important;
+}
+.badge-coming-soon {
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS & RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Prevent elements from touching edges and increase breathing space */
+  .container, .container-fluid {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Improve font scaling to strict explicit pixel boundaries */
+  h1, h2, .display-4, .hero-title-main {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+  h3, h4, .section-title, .lead {
+    font-size: 20px !important;
+  }
+  p, span, .hero-desc {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+  .nav-link {
+    font-size: 16px !important;
+  }
+  .product-title, .product-price, .product-category, .product-desc {
+    font-size: 16px !important;
+  }
+  
+  /* Improve spacing between sections and margins */
+  .section-padding {
+    padding: 3rem 0 !important;
+  }
+  .mb-5 {
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Reduce oversized buttons to strict sizes */
+  .btn, .btn-premium, .btn-outline-premium, .btn-whatsapp {
+    padding: 10px 20px !important;
+    font-size: 15px !important;
+  }
+  
+  /* Dropdown mobile styling */
+  .dropdown-menu {
+    border: none !important;
+    background-color: transparent !important;
+    padding-left: 15px !important;
+  }
+}
+
+/* ==========================================================================
+   NAVIGATION DROPDOWN (DESKTOP)
+   ========================================================================== */
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block !important;
+    margin-top: 0;
+    animation: fadeDropdown 0.3s ease;
+  }
+  .dropdown-menu {
+    background-color: var(--primary-white) !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    padding: 10px 0 !important;
+  }
+  .dropdown-item {
+    font-family: var(--font-body) !important;
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+    color: #4A4A4A !important;
+    transition: all 0.2s ease !important;
+  }
+  .dropdown-item:hover {
+    background-color: var(--secondary-beige) !important;
+    color: var(--accent-brown) !important;
+    padding-left: 25px !important; /* Premium indented hover effect */
+  }
+  
+  @keyframes fadeDropdown {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Reduce oversized icons */
+  .bi:not(.navbar-toggler i) {
+    font-size: 1.1rem;
+  }
+  
+  /* Hero should fit naturally */
+  .hero-custom {
+    min-height: auto !important;
+    padding: 3rem 0 !important;
+  }
+  .hero-text-col {
+    text-align: center !important;
+    align-items: center !important;
+    margin-bottom: 2rem !important;
+  }
+  .hero-desc {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Navbar optimized for mobile */
+  .custom-navbar {
+    padding: 10px 0 !important;
+  }
+  .navbar-brand img.site-logo {
+    max-height: 40px !important;
+  }
+  
+  /* Footer cleanly aligned */
+  .footer-dark, .shop-header {
+    text-align: center !important;
+  }
+  .footer-links li {
+    justify-content: center !important;
+  }
+  .social-icons {
+    justify-content: center !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 390px) {
+  /* Smaller screens like iPhone SE / 12 mini */
+  .hero-title-main {
+    font-size: 2rem !important;
+  }
+  .btn-premium, .btn-outline-premium, .dynamic-maps-nav {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+}

@@ -12,11 +12,10 @@ const CONFIG = {
   // WhatsApp Number (Include country code, no +, no spaces)
   whatsappNumber: "919974460515",
   phoneNumber: "+919974460515",
-  emailAddress: "pmmartofficial2026@gmail.com",
+  emailAddress: "[pmmartofficial2026@gmail.com]",
   
   // Location
   storeAddress: "Surat, Gujarat, India",
-  storeCityState: "Gujarat, India",
   storeTimings: "Mon - Sat, 10:00 AM - 7:00 PM",
   googleMapsUrl: "https://maps.app.goo.gl/7BFyjm7vuVuEhbfSA",
   googleMapsEmbedUrl: "https://www.google.com/maps?q=Surat,Gujarat,India&output=embed",
